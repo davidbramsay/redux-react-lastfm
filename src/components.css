@@ -1,25 +1,15 @@
-html, body, input, button {
-  font-family: Sawasdee;
-  font-size: 20px;
-}
 
-.todo__list {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-
-.todo__item {
+.item {
   padding: .5em .25em;
   border-bottom: solid 1px #eee;
 }
 
-.todo__item:hover {
+.item:hover {
   background: #f7f7f7;
   cursor: pointer;
 }
 
-.todo__entry {
+.entry {
   border: solid 1px #ccc;
   padding: .25em .5em;
   border-radius: .2em;
@@ -28,10 +18,10 @@ html, body, input, button {
   box-sizing: border-box;
 }
 
-.todo__button {
+.button {
   border: 0;
   border-radius: .2em;
-  background: #71B7FF;  
+  background: #71B7FF;
   color: #fff;
   padding: .25em .5em;
   margin: .5em 0;
@@ -39,7 +29,7 @@ html, body, input, button {
   cursor: pointer;
 }
 
-.todo__button:hover {
+.button:hover {
   background: #B2D8FF;
 }
 

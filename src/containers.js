@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as components from './components';
 import { getAndPushNewSongs, toggleSongRemoved } from './actions';
 
+
 export const SongHistory = connect(
   function mapStateToProps(state) {
     return { song_history: state };

@@ -1,0 +1,86 @@
+html, body, input, button {
+  font-family: monospace;
+  font-size: 14px;
+}
+
+.songlist_list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.songlist_item {
+  padding: .5em .25em;
+  border-bottom: solid 1px #eee;
+}
+
+.songlist_item:hover {
+  background: #f7f7f7;
+  cursor: pointer;
+}
+
+ul {
+    width:100%;
+    white-space: nowrap;
+}
+
+.songlist_date {
+  font-size: 10px;
+  font-style: italic;
+}
+
+.songlist_songname{
+    display: inline-block;
+    margin-left: 5px;
+    margin-right:10px;
+    max-width: 33%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-style: italic;
+}
+
+.songlist_songname:hover{
+    max-width: none;
+}
+
+.songlist_artist {
+    display: inline-block;
+    margin-left: 10px;
+    margin-right:10px;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 50%;
+    text-overflow: ellipsis;
+    font-style: bold;
+    text-shadow:0px 0px 1px black;
+}
+
+.songlist_artist:hover{
+    max-width: none;
+}
+
+.entry {
+  border: solid 1px #ccc;
+  padding: .25em .5em;
+  border-radius: .2em;
+  background: #f3f3f3;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.button {
+  border: 0;
+  border-radius: .2em;
+  background: #71B7FF;
+  color: #fff;
+  padding: .25em .5em;
+  margin: .5em 0;
+  margin-right: .25em;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #B2D8FF;
+}
+

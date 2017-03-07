@@ -2,6 +2,7 @@ var LastFmNode = require('./lastfm').LastFmNode;
 var _ = require('lodash');
 var config = require('../config');
 
+
 var lfm = new LastFmNode({
         'api_key' : config.lastfm_api_key,
         'secret' : config.lastfm_secret
@@ -80,7 +81,5 @@ exports.getListeningHistory = function getListeningHistory(username, timestamp=0
 
 
 };
-
-
 
 
