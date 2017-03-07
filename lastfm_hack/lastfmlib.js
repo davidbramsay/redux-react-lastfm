@@ -59,7 +59,7 @@ exports.getListeningHistory = function getListeningHistory(username, timestamp=0
 //songs of that page to the screen.
 
     getPagePromise(username, 1, timestamp).then(function(results){
-        if (results['totalPages'] != 1){
+        if ( results['totalPages'] != 1 && results['totalPages'] != 0 ){
 
             return Promise.all(_.range(2,parseInt(results['totalPages'])+1).map(
                 function(page){return getPagePromise(username, page, timestamp);})).then(function(results2){

@@ -6,7 +6,7 @@ import { getAndPushNewSongs, toggleSongRemoved } from './actions';
 
 export const SongHistory = connect(
   function mapStateToProps(state) {
-    return { song_history: state };
+    return { song_history: state.songlist };
   },
   function mapDispatchToProps(dispatch) {
     return {

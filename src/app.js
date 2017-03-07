@@ -1,13 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import { reducer } from './reducer';
+import { songlist, settings } from './reducer';
 import { SongHistory } from './containers';
 
 
-const store = createStore(reducer, applyMiddleware(thunk));
+const store = createStore(combineReducers({songlist,settings}), applyMiddleware(thunk));
 
 
 render(

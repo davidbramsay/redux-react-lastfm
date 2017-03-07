@@ -1,5 +1,4 @@
 import { getListeningHistory } from '../lastfm_hack/lastfmlib';
-import reducer from './reducer';
 
 const uid = () => Math.random().toString(34).slice(2);
 
@@ -24,7 +23,7 @@ export function getAndPushNewSongs(timestamp=0){
     const getMostRecentTimestamp = (songs) => { //get largest timestamp + 1
 
         if (songs.length > 0){
-            return Math.max.apply(Math,songs.map(song => {return s.timestamp;})) + 1;
+            return Math.max.apply(Math,songs.map(song => {return song.timestamp;})) + 1;
         }
 
         return 0;
@@ -32,12 +31,11 @@ export function getAndPushNewSongs(timestamp=0){
 
     return (dispatch, getState) => {
 
-        console.log('this function');
-        console.log(getState());
-        const songlist = getState();
+
+        const songlist = getState().songlist;
         timestamp = getMostRecentTimestamp(songlist);
 
-        console.log(timestamp);
+        console.log('thunk dispatch function, timestamp ' + timestamp);
 
         getListeningHistory('drmsy', timestamp, function(songs){
             console.log('dispatching!');
