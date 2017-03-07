@@ -1,15 +1,19 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import reducer from './reducer';
-import { TodoList } from './containers';
+import { reducer } from './reducer';
+import { SongHistory } from './containers';
 
-const store = createStore(reducer);
+console.log(SongHistory);
+console.log(typeof(SongHistory));
+
+const store = createStore(reducer, applyMiddleware(thunk));
 
 render(
   <Provider store={store}>
-    <TodoList />
+    <SongHistory />
   </Provider>,
   document.getElementById('app')
 );

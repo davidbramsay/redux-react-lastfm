@@ -2,20 +2,24 @@ import { List, Map } from 'immutable';
 
 const init = List([]);
 
-export default function reducer(todos=init, action) {
+export function reducer(song_history=init, action) {
   switch(action.type) {
-    case 'ADD_TODO':
-      return todos.push(Map(action.payload));
-    case 'TOGGLE_TODO':
-      return todos.map(t => {
-        if(t.get('id') === action.payload) {
-          return t.update('isDone', isDone => !isDone);
+    case 'PUSH_ONE_SONG':
+      return [...song_history, action.songlist];
+    case 'PUSH_NEW_SONGS':
+      return [...song_history,
+              ...action.songlist];
+    case 'REPLACE_SONGS':
+      return action.songlist;
+    case 'TOGGLE_SONG_REMOVE':
+      return song_history.map(song => {
+        if(song.timestamp === action.timestamp) {
+          return Object.assign({}, song, {isRemoved: !song.isRemoved});
         } else {
-          return t;
+          return song;
         }
       });
     default:
-      return todos;
+      return song_history;
   }
 }
-

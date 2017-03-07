@@ -1,16 +1,17 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import * as components from './components';
-import { addTodo, toggleTodo } from './actions';
+import { getAndPushNewSongs, toggleSongRemoved } from './actions';
 
-export const TodoList = connect(
+export const SongHistory = connect(
   function mapStateToProps(state) {
-    return { todos: state };
+    return { song_history: state };
   },
   function mapDispatchToProps(dispatch) {
     return {
-      addTodo: text => dispatch(addTodo(text)),
-      toggleTodo: id => dispatch(toggleTodo(id))
+      getAndPushNewSongs: () => { dispatch(getAndPushNewSongs()) },
+      toggleSongRemoved: (timestamp) => { dispatch(toggleSongRemoved(timestamp)) }
     };
   }
-)(components.TodoList);
+)(components.SongList);
 

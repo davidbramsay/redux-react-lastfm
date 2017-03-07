@@ -1,44 +1,36 @@
 import React from 'react';
 
-export function Todo(props) {
-  const { todo } = props;
 
-  if(todo.isDone) {
-    return <strike>{todo.text}</strike>;
+export function SongItem(props) {
+  const { song } = props;
+
+  if(song.isRemoved) {
+    return <strike>{song.datestring} :  {song.song} by {song.artist}, from {song.album}</strike>;
   } else {
-    return <span>{todo.text}</span>;
+    return <span>{song.datestring} :  {song.song} by {song.artist}, from {song.album}</span>;
   }
 }
 
-export function TodoList(props) {
-  const { todos, toggleTodo, addTodo } = props;
 
-  const onSubmit = (event) => {
-    const input = event.target;
-    const text = input.value;
-    const isEnterKey = (event.which == 13);
-    const isLongEnough = text.length > 0;
+export function SongList(props) {
+  const { song_history, getAndPushNewSongs, toggleSongRemoved } = props;
 
-    if(isEnterKey && isLongEnough) {
-      input.value = '';
-      addTodo(text);
-    }
+  const callLastFMClick = () => event => {
+      console.log('click');
+      getAndPushNewSongs();
   };
 
-  const toggleClick = id => event => toggleTodo(id);
+  const toggleClick = (timestamp) => event => toggleSongRemoved(timestamp);
 
   return (
     <div className='todo'>
-      <input type='text'
-             className='todo__entry'
-             placeholder='Add todo'
-             onKeyDown={onSubmit} />
+      <button onClick={callLastFMClick()}> Click Here to Load</button>
       <ul className='todo__list'>
-        {todos.map(t => (
-          <li key={t.get('id')}
+        {song_history.map(song => (
+          <li key={song.timestamp}
               className='todo__item'
-              onClick={toggleClick(t.get('id'))}>
-            <Todo todo={t.toJS()} />
+              onClick={toggleClick(song.timestamp)}>
+            <SongItem song={song} />
           </li>
         ))}
       </ul>

@@ -6,17 +6,27 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
+    "dev": "webpack-dev-server --hot --inline",
     "watch": "webpack --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "crypto": "0.0.3",
+    "events": "^1.1.1",
+    "http": "0.0.0",
     "immutable": "^3.8.0",
+    "lastfm": "^0.9.2",
+    "lodash": "^4.17.4",
+    "querystring": "^0.2.0",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
     "react-redux": "^4.4.5",
-    "redux": "^3.4.0"
+    "redux": "^3.4.0",
+    "redux-thunk": "^2.2.0",
+    "underscore": "^1.8.3",
+    "webpack": "^1.14.0"
   },
   "devDependencies": {
     "babel-loader": "^6.2.4",
