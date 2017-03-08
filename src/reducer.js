@@ -25,7 +25,7 @@ export function songlist(song_history=song_init, action) {
   }
 }
 
-const settings_init = {'lastfm': {'username': ''}, 'payments': {'amount':0, 'enabled':true}}
+const settings_init = {'lastfm': {'username': 'drmsy'}, 'payments': {'amount':0, 'enabled':true}}
 
 export function settings( settings=settings_init, action) {
     switch (action.type){

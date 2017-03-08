@@ -1,7 +1,7 @@
 import { getListeningHistory } from '../lastfm_hack/lastfmlib';
 
-const uid = () => Math.random().toString(34).slice(2);
-
+//---------------------------------------------------------------
+//--------------  ACTIONS FOR SONGS --------------------------
 
 export function pushSongs(songs=[]) {
 
@@ -32,12 +32,13 @@ export function getAndPushNewSongs(timestamp=0){
     return (dispatch, getState) => {
 
 
-        const songlist = getState().songlist;
-        timestamp = getMostRecentTimestamp(songlist);
+        const stateVar = getState();
+        let timestamp = getMostRecentTimestamp(stateVar.songlist);
+        let username = stateVar.settings.lastfm.username;
 
-        console.log('thunk dispatch function, timestamp ' + timestamp);
+        console.log('thunk, uname: ' + username + ' timestamp: ' + timestamp);
 
-        getListeningHistory('drmsy', timestamp, function(songs){
+        getListeningHistory(username, timestamp, function(songs){
             console.log('dispatching!');
             dispatch(pushSongs(songs));
         });
@@ -53,3 +54,29 @@ export function toggleSongRemoved(timestamp) {
   };
 }
 
+
+//---------------------------------------------------------------
+//--------------  ACTIONS FOR SETTINGS --------------------------
+
+export function updateLastFMUsername(name){
+  console.log('called update username with name ' + name);
+
+  return {
+    type: 'UPDATE_LASTFM_USERNAME',
+    username: name
+    };
+}
+
+export function updatePaymentAmount(amount=0){
+  return {
+    type: 'UPDATE_PAYMENT_AMOUNT',
+    amount: amount
+    };
+}
+
+export function togglePaymentEnabled(){
+  return {
+    type: 'TOGGLE_PAYMENT_ENABLED',
+    username: name
+    };
+}
