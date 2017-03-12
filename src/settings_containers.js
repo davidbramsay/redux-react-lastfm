@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as components from './settings_components';
-import { updateLastFMUsername, updatePaymentAmount, togglePaymentEnabled } from './actions';
+import { updateLastFMUsername, updatePaymentAmount, togglePaymentEnabled, updatePaymentTerm, getAndPushSongs } from './actions';
 
 
 export const Settings = connect(
@@ -12,7 +12,9 @@ export const Settings = connect(
     return {
       updateLastFMUsername: (name) => { dispatch(updateLastFMUsername(name)) },
       updatePaymentAmount: (amount) => { dispatch(updatePaymentAmount(amount)) },
-      togglePaymentEnabled: () => { dispatch(togglePaymentEnabled()) }
+      togglePaymentEnabled: () => { dispatch(togglePaymentEnabled()) },
+      updatePaymentTerm: (term) => { dispatch(updatePaymentTerm(term)) },
+      resetSongs: () => { dispatch(getAndPushSongs('REPLACE_SONGS')) }
     };
   }
 )(components.Settings);

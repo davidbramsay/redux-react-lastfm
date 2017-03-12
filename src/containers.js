@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as components from './components';
-import { getAndPushNewSongs, toggleSongRemoved } from './actions';
+import { getAndPushSongs, toggleSongRemoved } from './actions';
 
 
 export const SongHistory = connect(
@@ -10,7 +10,7 @@ export const SongHistory = connect(
   },
   function mapDispatchToProps(dispatch) {
     return {
-      getAndPushNewSongs: () => { dispatch(getAndPushNewSongs()) },
+      getAndPushNewSongs: () => { dispatch(getAndPushSongs()) },
       toggleSongRemoved: (timestamp) => { dispatch(toggleSongRemoved(timestamp)) }
     };
   }
